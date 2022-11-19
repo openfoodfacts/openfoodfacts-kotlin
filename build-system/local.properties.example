@@ -1,0 +1,3 @@
+sdk.dir=<Path to your Android SDK>
+compose.ios.teamId=<Your Apple development team identifier e.g. ABC123>
+
