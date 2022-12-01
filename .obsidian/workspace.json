@@ -1,0 +1,192 @@
+{
+  "main": {
+    "id": "a8b358d47cc82705",
+    "type": "split",
+    "children": [
+      {
+        "id": "1ef11f5deeb03105",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "67dc6aba7f9be4b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2c14cb4e06ac79d7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1dd8f3768bf92089",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "453c59a1d1e51c50",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "openfoodfacts-composite/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4b84d3f058de03ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "openfoodfacts-kotlin-test-app/ios/README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9703392120488e85",
+    "type": "split",
+    "children": [
+      {
+        "id": "6b8147654aa39086",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ce6356ae99958c9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7a263b94c06fa7d1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8e0846b555ca3e8e",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "976f6007f6892fcf",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ef282fedd7ad01f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "992eaaee4e42dc1d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "openfoodfacts-kotlin-test-app/ios/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "42de856ea420b12e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "openfoodfacts-kotlin-test-app/ios/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6a34dea89a1d896f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "481d6048590657ce",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "openfoodfacts-kotlin-test-app/ios/README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "4b84d3f058de03ea",
+  "lastOpenFiles": [
+    "openfoodfacts-composite/README.md",
+    "README.md",
+    "repository/maven/ci/README.md",
+    "openfoodfacts-kotlin/README.md",
+    "openfoodfacts-kotlin-test-app/README.md",
+    "openfoodfacts-test-app/README.md"
+  ]
+}

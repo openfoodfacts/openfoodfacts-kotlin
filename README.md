@@ -1,12 +1,15 @@
-# openfoodfacts-kotlin
-
-
 # Open Food Facts - Kotlin
-Kotlin package for the Open Food Facts API. Easily access to more than 1.9 million products from all around the world.
+
+[Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) package for the [Open Food Facts](https://world.openfoodfacts.org) API. Easily access to more than 1.9 million products from all around the world.
 Open Food Facts is powered by contributors from around the world and is constantly growing thanks to them.
 
 ## How to use ?
-You can find the full documentation here: XXXX
+
+1. See the [Library Documentation](openfoodfacts-kotlin/README.md) to start using this [Multiplatform](https://kotlinlang.org/docs/multiplatform.html) Library in your own Kotlin applications.
+
+2. You might also like to see a [Test Application](openfoodfacts-kotlin-test-app/README.md) which provides and example of the Kotlin Multiplatform Library integrated with iOS, Android and Desktop targets.
+
+3. For maintainers: the **Library** and **Test Application** are separate projects, loosely coupled via a file-based Maven repository. It is useful when further developing either of these, to edit them both in the same IDE workspace.  To enable this; use the [Composite project](openfoodfacts-composite/README.md).
 
 ## General principles
 - You can look for information about products, including many useful computed values. 
@@ -32,4 +35,8 @@ You can check the terms of use here : [Terms of use](https://world.openfoodfacts
 ## Third party applications
 If you use this SDK, feel free to open a PR to add your application in this list.
 
+## Documentation
+This documentation is best viewed and edited using [Obsidian](https://obsidian.md).
+
 ## Authors
+[Chris Hatton](https://github.com/chris-hatton) (christopherhattonuk@gmail.com)
