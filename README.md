@@ -3,7 +3,7 @@
 [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) package for the [Open Food Facts](https://world.openfoodfacts.org) API. Easily access to more than 1.9 million products from all around the world.
 Open Food Facts is powered by contributors from around the world and is constantly growing thanks to them.
 
-### ⚠️ **WARNING:** This is a development version and is not yes suitable for a production environment.
+> ⚠️ **WARNING:** This is a development version and is not yet suitable for a production environment.
 
 ## How to use ?
 
