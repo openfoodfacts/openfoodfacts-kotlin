@@ -3,11 +3,13 @@
 [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) package for the [Open Food Facts](https://world.openfoodfacts.org) API. Easily access to more than 1.9 million products from all around the world.
 Open Food Facts is powered by contributors from around the world and is constantly growing thanks to them.
 
+> ⚠️ **WARNING:** This is a development version and is not yet suitable for a production environment.
+
 ## How to use ?
 
 1. See the [Library Documentation](openfoodfacts-kotlin/README.md) to start using this [Multiplatform](https://kotlinlang.org/docs/multiplatform.html) Library in your own Kotlin applications.
 
-2. You might also like to see a [Test Application](openfoodfacts-kotlin-test-app/README.md) which provides and example of the Kotlin Multiplatform Library integrated with iOS, Android and Desktop targets.
+2. You might also like to see a [Test Application](openfoodfacts-kotlin-dev-app/README.md) which provides and example of the Kotlin Multiplatform Library integrated with iOS, Android and Desktop targets.
 
 3. For maintainers: the **Library** and **Test Application** are separate projects, loosely coupled via a file-based Maven repository. It is useful when further developing either of these, to edit them both in the same IDE workspace.  To enable this; use the [Composite project](openfoodfacts-composite/README.md).
 
