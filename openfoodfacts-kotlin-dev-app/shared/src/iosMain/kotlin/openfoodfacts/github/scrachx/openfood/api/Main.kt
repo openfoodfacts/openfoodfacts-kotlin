@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import openfoodfacts.github.scrachx.openfood.api.MainView
 import openfoodfacts.github.scrachx.openfood.api.MainViewModel
-import openfoodfacts.github.scrachx.openfood.api.service.impl.OpenFoodFactsKtorClient
+import openfoodfacts.github.scrachx.openfood.api.v0.service.impl.OpenFoodFactsKtorClient
 import platform.Foundation.NSStringFromClass
 import platform.UIKit.*
 

@@ -3,9 +3,9 @@ package openfoodfacts.github.scrach.openfood.api
 import io.ktor.client.plugins.logging.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
-import openfoodfacts.github.scrachx.openfood.api.model.ProductResponse
-import openfoodfacts.github.scrachx.openfood.api.service.OpenFoodFactsClient
-import openfoodfacts.github.scrachx.openfood.api.service.impl.OpenFoodFactsKtorClient
+import openfoodfacts.github.scrachx.openfood.api.v0.model.ProductResponse
+import openfoodfacts.github.scrachx.openfood.api.v0.service.OpenFoodFactsClient
+import openfoodfacts.github.scrachx.openfood.api.v0.service.impl.OpenFoodFactsKtorClient
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 
