@@ -5,7 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
-import openfoodfacts.github.scrachx.openfood.api.service.impl.OpenFoodFactsKtorClient
+import openfoodfacts.github.scrachx.openfood.api.v0.service.impl.OpenFoodFactsKtorClient
 import androidx.compose.foundation.layout.fillMaxSize
 
 class MainActivity : AppCompatActivity() {

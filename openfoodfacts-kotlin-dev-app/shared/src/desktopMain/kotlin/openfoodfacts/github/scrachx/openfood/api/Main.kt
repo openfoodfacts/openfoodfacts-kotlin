@@ -5,7 +5,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import openfoodfacts.github.scrachx.openfood.api.service.impl.OpenFoodFactsKtorClient
+import openfoodfacts.github.scrachx.openfood.api.v0.service.impl.OpenFoodFactsKtorClient
 
 /**
  * Entry point for the Desktop Application
