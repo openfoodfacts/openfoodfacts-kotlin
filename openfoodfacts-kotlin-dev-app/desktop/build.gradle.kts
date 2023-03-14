@@ -1,5 +1,6 @@
 import org.jetbrains.compose.compose
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+import com.openfood.suppressComposeCheckWorkaroundMethod
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -40,8 +41,8 @@ compose.desktop {
                 println("$java17HomeVar variable found, for use by Compose Desktop packaging:\n$java17Home\n")
                 javaHome = java17Home
             } ?: run {
-                println("Warning: $java17HomeVar variable not set.\nCompose Desktop packaging will only work if your system Java version is already >=15")
-            }
+            println("Warning: $java17HomeVar variable not set.\nCompose Desktop packaging will only work if your system Java version is already >=15")
+        }
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg)
@@ -50,3 +51,13 @@ compose.desktop {
         }
     }
 }
+
+compose {
+    kotlinCompilerPlugin.set(libs.compose.compiler.jetbrainsmultiplatform.get().toString())
+
+    // Broken in this version due to: https://github.com/JetBrains/compose-jb/pull/2716
+    // Use this method later (replacing `suppressComposeCheckWorkaroundMethod`)
+    // kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=${libs.versions.kotlin}")
+}
+
+suppressComposeCheckWorkaroundMethod()
