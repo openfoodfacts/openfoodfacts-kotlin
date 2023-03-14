@@ -1,7 +1,8 @@
 [versions]
-kotlin = "1.7.20" # See: https://kotlinlang.org/docs/releases.html#release-details
+# See: https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev for latest dev versions
+kotlin = "1.8.20-RC" # See: https://kotlinlang.org/docs/releases.html#release-details
 coroutines = "1.6.4"
-ktor = "2.1.3" # See: https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
+ktor = "2.2.4" # See: https://maven.pkg.jetbrains.space/public/p/ktor/eap/io/ktor/ktor/
 
 # Build
 build-buildkonfig = "0.12.0"
@@ -9,7 +10,7 @@ build-buildkonfig = "0.12.0"
 # Maintain this with values from: https://developer.android.com/reference/tools/gradle-api
 build-androidgradleplugin = "7.2.2"
 
-build-serializationplugin = "1.7.20"
+build-serializationplugin = "1.8.20-RC"
 build-versions = "0.42.0"
 build-updates = "0.4.0"
 build-kover = "0.5.1"
@@ -24,7 +25,7 @@ common-commonmark = "0.18.2"
 
 # Android
 android-appcompat = "1.4.1"
-android-kotlinextensions = "1.7.20"
+android-kotlinextensions = "1.8.20"
 android-camera = "1.0.2"
 android-cameraview = "1.0.0-alpha28"
 android-cameralifecycle = "1.0.2"
@@ -36,7 +37,6 @@ android-barcodescanning = "17.0.2"
 android-playservices = "20.2.0"
 
 logback = "1.2.11"
-
 
 test-junit = "4.13.2"
 test-androidjunit = "1.1.3"
@@ -50,10 +50,12 @@ test.androidx.compose.junit4 = "1.1.0" # todo reference to compose?
 # For new [jetbrains compose](https://github.com/jetbrains/compose-jb) builds see:
 # - [artifact repository](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui/)
 # - [github tags](https://github.com/jetbrains/compose-jb/tags)
-compose-jetbrainsmultiplatform = "1.2.1"
+compose-jetbrainsmultiplatform = "1.3.1"
+compose-compiler-jetbrainsmultiplatform = "1.4.3-dev-k1.8.20-Beta-15b4f4328eb"
 
 # See [google maven repository](https://maven.google.com/web/index.html#androidx.compose.ui:ui) for releases.
-compose-googleandroid = "1.2.1"
+compose-googleandroid = "1.3.1"
+compose-compiler-jetpack = "1.4.3-dev-k1.8.20-Beta-15b4f4328eb"
 
 [libraries]
 
@@ -125,10 +127,11 @@ android-barcodescanning = { module = "com.google.mlkit:barcode-scanning", versio
 
 # Compose - https://developer.android.com/jetpack/compose/
 
+compose-compiler-jetbrainsmultiplatform = { module = "androidx.compose.compiler:compiler", version.ref = "compose-compiler-jetbrainsmultiplatform" }
+
 ## Android
 compose-android-uitooling-core = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-googleandroid" }
 compose-android-uitooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-googleandroid" }
-
 
 openfoodfacts-kotlin = "openfoodfacts.github.scrachx.openfood.api.client:openfoodfacts-kotlin:1.0-SNAPSHOT"
 

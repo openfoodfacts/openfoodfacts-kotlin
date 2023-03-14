@@ -7,6 +7,7 @@ buildscript {
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
+    id("openfoodfacts-build-system")
     alias(libs.plugins.kotlin.multiplatform)
 
     id("com.android.library") version libs.versions.build.androidgradleplugin
@@ -57,7 +58,6 @@ kotlin {
             }
         }
         val desktopTest by getting {
-
         }
         val commonTest by getting {
             dependencies {
@@ -87,27 +87,21 @@ kotlin {
                 implementation(libs.ktor.client.darwin)
             }
         }
-        //val iosTest by getting
+        // val iosTest by getting
     }
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
-        targetSdk = 32
+        targetSdk = 33
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_9
+        targetCompatibility = JavaVersion.VERSION_1_9
     }
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    google()
 }
 
 extensions.getByType<PublishingExtension>().apply {

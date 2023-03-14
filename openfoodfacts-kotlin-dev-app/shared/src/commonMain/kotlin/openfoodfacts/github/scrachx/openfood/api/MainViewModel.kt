@@ -8,8 +8,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import openfoodfacts.github.scrachx.openfood.api.model.Ingredient
-import openfoodfacts.github.scrachx.openfood.api.service.OpenFoodFactsClient
+import openfoodfacts.github.scrachx.openfood.api.v0.model.Ingredient
+import openfoodfacts.github.scrachx.openfood.api.v0.service.OpenFoodFactsClient
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class MainViewModel(

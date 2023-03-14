@@ -1,9 +1,11 @@
 
 // Used to add repositories to both the plugin and dependency management configurations
 fun RepositoryHandler.configureCommonRepositories() {
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev/")
     google()
     mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev") // For Compose Multiplatform
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev") // For Kotlin Dev builds
+    maven("https://androidx.dev/storage/compose-compiler/repository/") // For Pre-release Compose
 }
 
 pluginManagement.repositories {
@@ -18,3 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "openfoodfacts-kotlin"
+
+includeBuild("../build-system")
