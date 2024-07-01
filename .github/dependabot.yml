@@ -8,7 +8,7 @@ updates:
   - package-ecosystem: "gradle" # See documentation for possible values
     directory: "openfoodfacts-kotlin/build.gradle.kts" # Location of package manifests
     schedule:
-      interval: "weekly"
+      interval: "daily"
     commit-message:
       prefix: "chore"
       include: "scope"
