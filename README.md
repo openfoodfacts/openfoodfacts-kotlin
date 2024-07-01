@@ -51,5 +51,6 @@ You can check the terms of use here : [Terms of use](https://world.openfoodfacts
 ## 🤝 Third party applications
 If you use this SDK, feel free to open a PR to add your application in this list.
 
+<p>We are also very interested in learning what the Open Food Facts data is used for. It is not mandatory, but we would very much appreciate it if you <a href="mailto:reuse@openfoodfacts.org?subject=Open%20Food%20Facts%20Data%20reuse">tell us about your re-uses</a> so that we can share them with the Open Food Facts community. You can also <a href="https://forms.gle/hwaeqBfs8ywwhbTg8">fill this form</a> to get a chance to get your app featured.</p>
 ## 🧑‍🤝‍🧑 Authors
 - [Chris Hatton](https://github.com/chris-hatton) (christopherhattonuk@gmail.com)
