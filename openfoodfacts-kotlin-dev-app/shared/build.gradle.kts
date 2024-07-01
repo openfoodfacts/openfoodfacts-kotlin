@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
+import com.openfood.suppressComposeCheckWorkaroundMethod
 
 val iosDeploymentTarget = "15.4"
 
@@ -87,7 +88,7 @@ kotlin {
             setOf(
                 iosX64Main,
                 iosArm64Main,
-                iosSimulatorArm64Main
+                iosSimulatorArm64Main,
             ).forEach { iosTarget ->
                 iosTarget.dependsOn(this)
             }
@@ -101,14 +102,17 @@ kotlin {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = 24
+        targetSdk = 33
     }
     buildFeatures {
         compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.jetpack.get()
     }
 
     dependencies {
@@ -119,3 +123,17 @@ android {
         implementation(libs.android.activitycompose)
     }
 }
+
+compose {
+    android {
+        useAndroidX = true
+    }
+
+    kotlinCompilerPlugin.set(libs.compose.compiler.jetbrainsmultiplatform.get().toString())
+
+    // Broken in this version due to: https://github.com/JetBrains/compose-jb/pull/2716
+    // Use this method later (replacing `suppressComposeCheckWorkaroundMethod`)
+    // kotlinCompilerPluginArgs.add("suppressKotlinVersionCompatibilityCheck=${libs.versions.kotlin}")
+}
+
+suppressComposeCheckWorkaroundMethod()

@@ -2,7 +2,7 @@
 plugins {
     id("com.android.application")
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.compose)
+    //alias(libs.plugins.compose)
 }
 
 group = "openfoodfacts.github.scrachx.openfood.api.client"
@@ -15,13 +15,13 @@ kotlin {
             dependencies {
                 implementation(project(":shared"))
                 implementation(libs.openfoodfacts.kotlin)
-                
+
                 implementation(libs.android.appcompat)
                 implementation(libs.android.activitycompose)
-                
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.ui)
+
+                //implementation(compose.runtime)
+                //implementation(compose.foundation)
+                //implementation(compose.ui)
 
                 implementation(libs.ktor.client.logging)
             }
@@ -30,11 +30,11 @@ kotlin {
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
     defaultConfig {
         applicationId = "openfoodfacts.github.scrachx.openfood.api.client.testapp"
         minSdk = 24
-        targetSdk = 32
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
     }
@@ -47,7 +47,10 @@ android {
             isMinifyEnabled = false
         }
     }
-    buildFeatures {
-        compose = true
-    }
+//    buildFeatures {
+//        compose = true
+//    }
+//    composeOptions {
+//        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.jetpack.get()
+//    }
 }
