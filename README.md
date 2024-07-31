@@ -55,3 +55,6 @@ If you use this SDK, feel free to open a PR to add your application in this list
 
 ## 🧑‍🤝‍🧑 Authors
 - [Chris Hatton](https://github.com/chris-hatton) (christopherhattonuk@gmail.com)
+## Contributors
+
+[![Drag Racing](https://contrib.rocks/image?repo=openfoodfacts/openfoodfacts-kotlin)](https://github.com/openfoodfacts/openfoodfacts-kotlin/graphs/contributors)
