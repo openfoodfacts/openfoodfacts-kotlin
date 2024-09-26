@@ -24,7 +24,7 @@ In order of relevance:
 | `/build-system`                 | Gradle plugin providing common build functions   | [Link](build-system/README.md)                 |
 | `/repository/maven/ci`          | File-based Maven repository for CI/Dev usage     | [Link](repository/maven/ci/README.md)          |
 | `/doc`                          | Extra Documentation/Assets                       | [Link](doc/README.md)                          |
-
+| `/   `                          | CHANGELOG                                        | [Link](CHANGELOG.md)                           |
 ## ⚖️ General principles
 - You can look for information about products, including many useful computed values. 
 - If you can't get the information on a specific product, you can get your user to send photos and data, that will then be processed by Open Food Facts AI and contributors to get the computed result you want to show them.
