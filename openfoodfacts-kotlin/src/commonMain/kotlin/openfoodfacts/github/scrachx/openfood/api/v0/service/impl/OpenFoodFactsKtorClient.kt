@@ -22,7 +22,10 @@ class OpenFoodFactsKtorClient(
         build()
     }
 
-    private val httpClient = HttpClientFactory.createHttpClient(logLevel)
+    private val httpClient by lazy {
+        val engine = HttpEngineFactory().create()
+        HttpClientFactory(engine).createHttpClient(logLevel)
+    }
 
     override suspend fun fetchProductByCode(code: String): ProductResponse =
         httpClient
