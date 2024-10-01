@@ -2,3 +2,6 @@
 build/
 .gradle
 /**/*.hprof
+.idea
+repository/
+openfoodfacts-kotlin-dev-app/.idea

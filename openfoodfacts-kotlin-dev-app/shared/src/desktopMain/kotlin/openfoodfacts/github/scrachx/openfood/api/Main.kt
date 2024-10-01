@@ -5,6 +5,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
+import io.ktor.client.plugins.logging.LogLevel
 import openfoodfacts.github.scrachx.openfood.api.v0.service.impl.OpenFoodFactsKtorClient
 
 /**
@@ -18,7 +19,7 @@ fun main() {
         ) {
             val scope = rememberCoroutineScope()
             MainView(
-                viewModel = MainViewModel(scope, OpenFoodFactsKtorClient()),
+                viewModel = MainViewModel(scope, OpenFoodFactsKtorClient(logLevel = LogLevel.ALL)),
                 modifier = Modifier.fillMaxSize()
             )
         }
