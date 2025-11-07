@@ -65,24 +65,58 @@ class OpenFoodFactsKtorClient(
         category: String,
         page: Int,
         fields: String?
-    ): Search {
-        val url = URLBuilder(endpoint).apply {
-            path("category", category, "$page.json")
-            fields?.let { parameters.append("fields", it) }
-        }.build()
-
-        return httpClient.get(url) {
-            header(HttpHeaders.UserAgent, userAgent)
-        }.body()
-    }
+    ): Search = getProductsByFilter("category", category, page, fields)
 
     override suspend fun getProductsByBrand(
         brand: String,
         page: Int,
         fields: String?
+    ): Search = getProductsByFilter("brand", brand, page, fields)
+
+    override suspend fun getProductsByLabel(
+        label: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("label", label, page, fields)
+
+    override suspend fun getProductsByAdditive(
+        additive: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("additive", additive, page, fields)
+
+    override suspend fun getProductsByAllergen(
+        allergen: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("allergen", allergen, page, fields)
+
+    override suspend fun getProductsByCountry(
+        country: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("country", country, page, fields)
+
+    override suspend fun getProductsByPackaging(
+        packaging: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("packaging", packaging, page, fields)
+
+    override suspend fun getProductsByStore(
+        store: String,
+        page: Int,
+        fields: String?
+    ): Search = getProductsByFilter("store", store, page, fields)
+
+    override suspend fun getProductsByContributor(
+        contributor: String,
+        page: Int,
+        fields: String?
     ): Search {
         val url = URLBuilder(endpoint).apply {
-            path("brand", brand, "$page.json")
+            path("contributor", contributor, "$page.json")
+            parameters.append("nocache", "1")
             fields?.let { parameters.append("fields", it) }
         }.build()
 
@@ -98,6 +132,25 @@ class OpenFoodFactsKtorClient(
         val url = URLBuilder(endpoint).apply {
             path("state", "to-be-completed", "$page.json")
             parameters.append("nocache", "1")
+            fields?.let { parameters.append("fields", it) }
+        }.build()
+
+        return httpClient.get(url) {
+            header(HttpHeaders.UserAgent, userAgent)
+        }.body()
+    }
+
+    /**
+     * Helper function to get products by a specific filter type
+     */
+    private suspend fun getProductsByFilter(
+        filterType: String,
+        filterValue: String,
+        page: Int,
+        fields: String?
+    ): Search {
+        val url = URLBuilder(endpoint).apply {
+            path(filterType, filterValue, "$page.json")
             fields?.let { parameters.append("fields", it) }
         }.build()
 

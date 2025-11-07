@@ -60,6 +60,104 @@ interface OpenFoodFactsClient {
     ): Search
 
     /**
+     * Get products by label
+     *
+     * @param label label name (e.g., "organic", "fair-trade")
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByLabel(
+        label: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by additive
+     *
+     * @param additive additive code or name
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByAdditive(
+        additive: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by allergen
+     *
+     * @param allergen allergen name
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByAllergen(
+        allergen: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by country
+     *
+     * @param country country name
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByCountry(
+        country: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by packaging type
+     *
+     * @param packaging packaging type
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByPackaging(
+        packaging: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by store
+     *
+     * @param store store name
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByStore(
+        store: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
+     * Get products by contributor
+     *
+     * @param contributor contributor username
+     * @param page page number (starting from 1)
+     * @param fields optional comma-separated list of fields to return
+     * @return search results
+     */
+    suspend fun getProductsByContributor(
+        contributor: String,
+        page: Int = 1,
+        fields: String? = null
+    ): Search
+
+    /**
      * Get incomplete products that need to be completed
      *
      * @param page page number (starting from 1)
