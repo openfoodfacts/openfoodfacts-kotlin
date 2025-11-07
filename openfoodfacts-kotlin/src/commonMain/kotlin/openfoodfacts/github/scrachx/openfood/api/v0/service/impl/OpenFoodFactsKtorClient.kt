@@ -9,6 +9,20 @@ import openfoodfacts.github.scrachx.openfood.api.v0.model.ProductResponse
 import openfoodfacts.github.scrachx.openfood.api.v0.model.Search
 import openfoodfacts.github.scrachx.openfood.api.v0.service.OpenFoodFactsClient
 
+/**
+ * Filter types supported by the Open Food Facts API
+ */
+private enum class FilterType(val value: String) {
+    CATEGORY("category"),
+    BRAND("brand"),
+    LABEL("label"),
+    ADDITIVE("additive"),
+    ALLERGEN("allergen"),
+    COUNTRY("country"),
+    PACKAGING("packaging"),
+    STORE("store")
+}
+
 class OpenFoodFactsKtorClient(
     private val endpoint: String = API_URL,
     private val userAgent: String = DEFAULT_USER_AGENT,
@@ -65,49 +79,49 @@ class OpenFoodFactsKtorClient(
         category: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("category", category, page, fields)
+    ): Search = getProductsByFilter(FilterType.CATEGORY, category, page, fields)
 
     override suspend fun getProductsByBrand(
         brand: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("brand", brand, page, fields)
+    ): Search = getProductsByFilter(FilterType.BRAND, brand, page, fields)
 
     override suspend fun getProductsByLabel(
         label: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("label", label, page, fields)
+    ): Search = getProductsByFilter(FilterType.LABEL, label, page, fields)
 
     override suspend fun getProductsByAdditive(
         additive: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("additive", additive, page, fields)
+    ): Search = getProductsByFilter(FilterType.ADDITIVE, additive, page, fields)
 
     override suspend fun getProductsByAllergen(
         allergen: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("allergen", allergen, page, fields)
+    ): Search = getProductsByFilter(FilterType.ALLERGEN, allergen, page, fields)
 
     override suspend fun getProductsByCountry(
         country: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("country", country, page, fields)
+    ): Search = getProductsByFilter(FilterType.COUNTRY, country, page, fields)
 
     override suspend fun getProductsByPackaging(
         packaging: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("packaging", packaging, page, fields)
+    ): Search = getProductsByFilter(FilterType.PACKAGING, packaging, page, fields)
 
     override suspend fun getProductsByStore(
         store: String,
         page: Int,
         fields: String?
-    ): Search = getProductsByFilter("store", store, page, fields)
+    ): Search = getProductsByFilter(FilterType.STORE, store, page, fields)
 
     override suspend fun getProductsByContributor(
         contributor: String,
@@ -144,13 +158,13 @@ class OpenFoodFactsKtorClient(
      * Helper function to get products by a specific filter type
      */
     private suspend fun getProductsByFilter(
-        filterType: String,
+        filterType: FilterType,
         filterValue: String,
         page: Int,
         fields: String?
     ): Search {
         val url = URLBuilder(endpoint).apply {
-            path(filterType, filterValue, "$page.json")
+            path(filterType.value, filterValue, "$page.json")
             fields?.let { parameters.append("fields", it) }
         }.build()
 
