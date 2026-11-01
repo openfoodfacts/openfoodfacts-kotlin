@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
 import com.openfood.suppressComposeCheckWorkaroundMethod
+import org.jetbrains.kotlin.konan.target.HostManager
 
 val iosDeploymentTarget = "15.4"
 
@@ -21,29 +22,31 @@ kotlin {
         }
     }
 
-    setOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach { iosTarget ->
-        iosTarget.binaries {
-            framework {
-                // Required by Compose/iOS
-                embedBitcode = BitcodeEmbeddingMode.DISABLE
-                baseName = project.name
-                freeCompilerArgs = freeCompilerArgs + listOf(
-                    // Linking requirements gleaned from: https://github.com/JetBrains/compose-jb/blob/master/experimental/examples/falling-balls-mpp/build.gradle.kts
-                    "-linker-option", "-framework", "-linker-option", "Metal",
-                    "-linker-option", "-framework", "-linker-option", "CoreText",
-                    "-linker-option", "-framework", "-linker-option", "CoreGraphics",
-                    // Disabling Bitcode verification is necessary for Compose/iOS, its binaries confuse LLVM.
-                    "-Xdisable-phases=VerifyBitcode",
-                )
+    if (HostManager.hostIsMac) {
+        setOf(
+            iosX64(),
+            iosArm64(),
+            iosSimulatorArm64(),
+        ).forEach { iosTarget ->
+            iosTarget.binaries {
+                framework {
+                    // Required by Compose/iOS
+                    embedBitcode = BitcodeEmbeddingMode.DISABLE
+                    baseName = project.name
+                    freeCompilerArgs = freeCompilerArgs + listOf(
+                        // Linking requirements gleaned from: https://github.com/JetBrains/compose-jb/blob/master/experimental/examples/falling-balls-mpp/build.gradle.kts
+                        "-linker-option", "-framework", "-linker-option", "Metal",
+                        "-linker-option", "-framework", "-linker-option", "CoreText",
+                        "-linker-option", "-framework", "-linker-option", "CoreGraphics",
+                        // Disabling Bitcode verification is necessary for Compose/iOS, its binaries confuse LLVM.
+                        "-Xdisable-phases=VerifyBitcode",
+                    )
+                }
             }
-        }
-        iosTarget.compilations.all {
-            // If we don't specify this; then the toolchain defaults to targeting iOS 9.0, which fails for Compose/iOS
-            kotlinOptions.freeCompilerArgs += "-Xoverride-konan-properties=osVersionMin.ios_x64=$iosDeploymentTarget;osVersionMin.ios_arm64=$iosDeploymentTarget"
+            iosTarget.compilations.all {
+                // If we don't specify this; then the toolchain defaults to targeting iOS 9.0, which fails for Compose/iOS
+                kotlinOptions.freeCompilerArgs += "-Xoverride-konan-properties=osVersionMin.ios_x64=$iosDeploymentTarget;osVersionMin.ios_arm64=$iosDeploymentTarget"
+            }
         }
     }
 
@@ -80,17 +83,19 @@ kotlin {
                 implementation(compose.preview)
             }
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            setOf(
-                iosX64Main,
-                iosArm64Main,
-                iosSimulatorArm64Main,
-            ).forEach { iosTarget ->
-                iosTarget.dependsOn(this)
+        if (HostManager.hostIsMac) {
+            val iosX64Main by getting
+            val iosArm64Main by getting
+            val iosSimulatorArm64Main by getting
+            val iosMain by creating {
+                dependsOn(commonMain)
+                setOf(
+                    iosX64Main,
+                    iosArm64Main,
+                    iosSimulatorArm64Main,
+                ).forEach { iosTarget ->
+                    iosTarget.dependsOn(this)
+                }
             }
         }
         val previewMain by creating {
@@ -102,7 +107,7 @@ kotlin {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = 37
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = 24
