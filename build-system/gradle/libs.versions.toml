@@ -51,7 +51,7 @@ test.androidx.compose.junit4 = "1.1.0" # todo reference to compose?
 # - [artifact repository](https://maven.pkg.jetbrains.space/public/p/compose/dev/org/jetbrains/compose/ui/ui/)
 # - [github tags](https://github.com/jetbrains/compose-jb/tags)
 compose-jetbrainsmultiplatform = "1.3.1"
-compose-compiler-jetbrainsmultiplatform = "1.4.3-dev-k1.8.20-Beta-15b4f4328eb"
+compose-compiler-jetbrainsmultiplatform = "1.4.5"
 
 # See [google maven repository](https://maven.google.com/web/index.html#androidx.compose.ui:ui) for releases.
 compose-googleandroid = "1.3.1"
